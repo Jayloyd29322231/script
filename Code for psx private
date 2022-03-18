@@ -1,0 +1,77 @@
+workspace.THINGS.REMOTES.MAIN:FireServer("b", "bank deposit")
+
+workspace.THINGS.REMOTES.MAIN:FireServer("b", "bank withdraw")
+
+local function Bank(id)
+
+   local self = {}
+
+   function self:withdraw(pets, gems)
+
+local A_1 = 
+
+{
+
+    [1] = id, 
+
+    [2] = 
+
+{
+
+}, 
+
+    [3] = gems
+
+}
+
+        local Event = game:GetService("Workspace")["THINGS"]["REMOTES"]["bank withdraw"]
+
+        Event:InvokeServer(A_1)
+
+   end
+
+   function self:deposit(pets, gems)
+
+       local A_1 = 
+
+{
+
+    [1] = id, 
+
+    [2] = 
+
+{
+
+}, 
+
+    [3] = gems
+
+}
+
+        local Event = game:GetService("Workspace")["THINGS"]["REMOTES"]["bank deposit"]
+
+        Event:InvokeServer(A_1)
+
+   end
+
+   return self
+
+end
+
+--//
+
+local bankid = "9db6d62a-32eb-4429-9e39-9193dd189b30"--bank
+
+for i=1, 1000 do
+
+   Bank(bankid):withdraw({}, 1)
+
+   print('withdrawed 1 gem')
+
+   Bank(bankid):deposit({}, 1)
+
+   print('deposited 1 gem')
+
+   task.wait(5)
+
+end
